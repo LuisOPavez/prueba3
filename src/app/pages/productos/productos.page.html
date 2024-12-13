@@ -2,10 +2,10 @@
 <ion-menu side="end" contentId="main-content">
   <ion-header>
     <ion-toolbar color="tertiary">
-      <ion-title>{{titulo}}</ion-title>
+      <ion-title>{{ titulo }}</ion-title>
       <ion-buttons slot="start">
-        <ion-back-button text="regresar"defaultHref="/"></ion-back-button>
-      </ion-buttons>    
+        <ion-back-button text="Regresar" defaultHref="/"></ion-back-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
@@ -15,8 +15,8 @@
     <ion-button routerLink="/quienes-somos" expand="block">Quienes Somos</ion-button>
   </ion-content>
 </ion-menu>
- 
-<!--Logo y Titulo-->
+
+<!-- Contenido Principal -->
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
@@ -29,8 +29,23 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-<!--Contenido Principal-->
+
   <ion-content class="ion-padding">
-   <h4>Productos</h4>
+    <h4 class="ion-text-center">{{ titulo }}</h4>
+    <div *ngIf="productos.length > 0; else loading">
+      <ion-card *ngFor="let producto of productos" class="ion-text-center">
+        <ion-card-header>
+          <ion-card-title>{{ producto.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-img [src]="producto.image" alt="{{ producto.title }}" style="height: 200px; object-fit: contain;"></ion-img>
+        <ion-card-content>
+          <p><strong>Precio:</strong> ${{ producto.price }}</p>
+          <p>{{ producto.description }}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <ng-template #loading>
+      <p class="ion-text-center">Cargando productos...</p>
+    </ng-template>
   </ion-content>
 </div>

@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
+import { HttpClientModule } from '@angular/common/http'; // Importar HttpClientModule
 
 import { ProductosPageRoutingModule } from './productos-routing.module';
-
 import { ProductosPage } from './productos.page';
 
 @NgModule({
@@ -13,8 +12,9 @@ import { ProductosPage } from './productos.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ProductosPageRoutingModule
+    ProductosPageRoutingModule,
+    HttpClientModule, // Agregar HttpClientModule aquí
   ],
-  declarations: [ProductosPage]
+  declarations: [ProductosPage],
 })
 export class ProductosPageModule {}
