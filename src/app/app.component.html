@@ -4,16 +4,18 @@
     <ion-header>
       <ion-toolbar color="tertiary">
         <ion-title>Tekowave</ion-title>
-        <ion-buttons slot="start">
-          <ion-back-button text="Regresar" defaultHref="/"></ion-back-button>
-        </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <ion-button routerLink="/login" expand="block">Log-In</ion-button>
-      <ion-button routerLink="/registro" expand="block">Registro</ion-button>
-      <ion-button routerLink="/productos" expand="block">Productos</ion-button>
-      <ion-button routerLink="/quienes-somos" expand="block">Quienes Somos</ion-button>
+      <ion-list>
+        <ion-item routerLink="/inicio">Inicio</ion-item>
+        <ion-item routerLink="/productos">Productos</ion-item>
+        <ion-item routerLink="/quienes-somos">Quienes Somos</ion-item>
+        <ion-item *ngIf="!authService.isLoggedIn()" routerLink="/login">Iniciar Sesión</ion-item>
+        <ion-item *ngIf="!authService.isLoggedIn()" routerLink="/registro">Registrarse</ion-item>
+        <ion-item (click)="clearAllPreferences()">Limpiar Preferencias</ion-item>
+        <ion-item *ngIf="authService.isLoggedIn()" (click)="onLogout()">Cerrar Sesión</ion-item>
+      </ion-list>
     </ion-content>
   </ion-menu>
 

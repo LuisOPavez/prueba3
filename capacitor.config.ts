@@ -1,9 +1,10 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'Tekowave',
-  webDir: 'www'
+  appId: 'com.example.tekowave',
+  appName: 'TekoWave',
+  webDir: 'www',
+  bundledWebRuntime: false
 };
 
 export default config;

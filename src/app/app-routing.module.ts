@@ -4,30 +4,29 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'inicio', // Redirige a 'inicio' cuando se accede a la raíz
     pathMatch: 'full'
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'productos',
-    loadChildren: () => import('./pages/productos/productos.module').then( m => m.ProductosPageModule)
+    loadChildren: () => import('./pages/productos/productos.module').then(m => m.ProductosPageModule)
   },
   {
     path: 'quienes-somos',
-    loadChildren: () => import('./pages/quienes-somos/quienes-somos.module').then( m => m.QuienesSomosPageModule)
+    loadChildren: () => import('./pages/quienes-somos/quienes-somos.module').then(m => m.QuienesSomosPageModule)
   },
-  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   {
     path: 'registro',
-    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
-  },
+    loadChildren: () => import('./pages/registro/registro.module').then(m => m.RegistroPageModule)
+  }
 ];
 
 @NgModule({
@@ -36,4 +35,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
